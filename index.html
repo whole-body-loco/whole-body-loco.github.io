@@ -1,0 +1,374 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <!-- Google tag (gtag.js) -->
+  <!-- <script async src="https://www.googletagmanager.com/gtag/js?id=G-FCVVBBES0F"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+
+    gtag('config', 'G-FCVVBBES0F');
+  </script> -->
+  <meta charset="utf-8">
+  <meta name="description"
+    content="">
+  <meta name="keywords" content="Nerfies, D-NeRF, NeRF">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Humanoid Whole-Body Locomotion on Narrow Terrain via Dynamic
+    Balance and Reinforcement Learning</title>
+
+  <link href="https://fonts.googleapis.com/css?family=Google+Sans|Noto+Sans|Castoro" rel="stylesheet">
+
+  <link rel="stylesheet" href="./static/css/bulma.min.css">
+  <link rel="stylesheet" href="./static/css/bulma-carousel.min.css">
+  <link rel="stylesheet" href="./static/css/bulma-slider.min.css">
+  <link rel="stylesheet" href="./static/css/fontawesome.all.min.css">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/jpswalsh/academicons@1/css/academicons.min.css">
+  <link rel="stylesheet" href="./static/css/index.css">
+  <!-- <link rel="icon" href="./static/images/icon.png"> -->
+
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+  <script defer src="./static/js/fontawesome.all.min.js"></script>
+  <script src="./static/js/bulma-carousel.min.js"></script>
+  <script src="./static/js/bulma-slider.min.js"></script>
+  <script src="./static/js/index.js"></script>
+</head>
+
+<body>
+
+
+  <section class="hero">
+    <div class="hero-body">
+      <div class="container is-max-desktop">
+        <div class="columns is-centered">
+          <div class="column has-text-centered">
+            <h1 class="title is-1 publication-title">Humanoid Whole-Body Locomotion on Narrow Terrain via Dynamic
+              Balance and Reinforcement Learning</h1>
+            <div class="is-size-5 publication-authors">
+              <span class="author-block">
+                <a href="">Weiji Xie</a><sup>1,2</sup>,
+              </span>
+              <span class="author-block">
+                <a href="https://baichenjia.github.io/">Chenjia Bai</a><sup>1*</sup>,
+              </span>
+              <span class="author-block">
+                <a href="https://scholar.google.com/citations?user=aVte5j4AAAAJ">Jiyuan Shi</a><sup>1</sup>,
+              </span>
+              <span class="author-block">
+                <a href="">Junkai Yang</a><sup>1,2</sup>,
+              </span>
+              <span class="author-block">
+                <a href="">Yunfei Ge</a><sup>1</sup>,
+              </span>
+              <span class="author-block">
+                <a href="https://wnzhang.net">Weinan Zhang</a><sup>2</sup>,
+              </span>
+              <span class="author-block">
+                <a href="https://scholar.google.com.hk/citations?user=ahUibskAAAAJ">Xuelong Li</a><sup>1</sup>
+              </span>
+            </div>
+
+            <div class="is-size-5 publication-authors">
+              <!-- <span class="author-block">Affiliation</span> -->
+              <span class="author-block"><sup>1</sup>Institute of Artificial Intelligence (TeleAI), </span>
+              <span class="author-block"><sup>2</sup>Shanghai Jiao Tong University</span><br>
+              <img src="./static/images/teleai.png" width="10%" style="margin-right: 50px; margin-top:20px"></img>  
+              <img src="./static/images/sjtu.png" width="10%" style="margin-right: 0px; margin-top:20px"></img>
+            </div>
+            <!-- <div class="is-size-5 publication-authors">
+              <span class="author-block">IROS 2025</span>
+            </div> -->
+
+            <div class="column has-text-centered">
+              <div class="publication-links">
+                <!-- PDF Link. -->
+                <span class="link-block">
+                  <a href=""
+                    class="external-link button is-normal is-rounded is-dark">
+                    <span class="icon">
+                      <i class="fas fa-file-pdf"></i>
+                    </span>
+                    <span>Paper</span>
+                  </a>
+                </span>
+                <span class="link-block">
+                  <a href=""
+                    class="external-link button is-normal is-rounded is-dark">
+                    <span class="icon">
+                      <i class="ai ai-arxiv"></i>
+                    </span>
+                    <span>arXiv</span>
+                  </a>
+                </span>
+                <!-- Video Link. -->
+                <span class="link-block">
+                  <a href=""
+                    class="external-link button is-normal is-rounded is-dark">
+                    <span class="icon">
+                      <i class="fab fa-youtube"></i>
+                    </span>
+                    <span>Video</span>
+                  </a>
+                </span>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+  <!-- <section class="hero teaser">
+  <div class="container is-max-desktop">
+    <div class="hero-body">
+      <video id="teaser" autoplay muted loop playsinline height="100%">
+        <source src="./static/videos/teaser.mp4"
+                type="video/mp4">
+      </video>
+      <h2 class="subtitle has-text-centered">
+        <span class="dnerf">Nerfies</span> turns selfie videos from your phone into
+        free-viewpoint
+        portraits.
+      </h2>
+    </div>
+  </div>
+</section> -->
+  <!-- <section class="hero is-light is-small">
+  <div class="hero-body">
+    <div class="container">
+      <div id="results-carousel" class="carousel results-carousel">
+        <div class="item item-steve">
+          <video poster="" id="steve" autoplay controls muted loop playsinline height="100%">
+            <source src="./static/videos/steve.mp4"
+                    type="video/mp4">
+          </video>
+        </div>
+        <div class="item item-chair-tp">
+          <video poster="" id="chair-tp" autoplay controls muted loop playsinline height="100%">
+            <source src="./static/videos/chair-tp.mp4"
+                    type="video/mp4">
+          </video>
+        </div>
+        <div class="item item-shiba">
+          <video poster="" id="shiba" autoplay controls muted loop playsinline height="100%">
+            <source src="./static/videos/shiba.mp4"
+                    type="video/mp4">
+          </video>
+        </div>
+        <div class="item item-fullbody">
+          <video poster="" id="fullbody" autoplay controls muted loop playsinline height="100%">
+            <source src="./static/videos/fullbody.mp4"
+                    type="video/mp4">
+          </video>
+        </div>
+        <div class="item item-blueshirt">
+          <video poster="" id="blueshirt" autoplay controls muted loop playsinline height="100%">
+            <source src="./static/videos/blueshirt.mp4"
+                    type="video/mp4">
+          </video>
+        </div>
+        <div class="item item-mask">
+          <video poster="" id="mask" autoplay controls muted loop playsinline height="100%">
+            <source src="./static/videos/mask.mp4"
+                    type="video/mp4">
+          </video>
+        </div>
+        <div class="item item-coffee">
+          <video poster="" id="coffee" autoplay controls muted loop playsinline height="100%">
+            <source src="./static/videos/coffee.mp4"
+                    type="video/mp4">
+          </video>
+        </div>
+        <div class="item item-toby">
+          <video poster="" id="toby" autoplay controls muted loop playsinline height="100%">
+            <source src="./static/videos/toby2.mp4"
+                    type="video/mp4">
+          </video>
+        </div>
+      </div>
+    </div>
+  </div>
+</section> -->
+  <section class="section">
+    <div class="container is-max-desktop">
+      <!-- Paper video. -->
+      <div class="columns is-centered has-text-centered">
+        <!-- <div class="column is-four-fifths"> -->
+          <div class="column is-max-desktop">
+          <h2 class="title is-2">Video</h2>
+          <video id="paper-video" controls>
+            <source src="./static/videos/track.mp4" type="video/mp4">
+          </video>
+        </div>
+      </div>
+      <!--/ Paper video. -->
+      <!-- Abstract. -->
+      <div class="columns is-centered has-text-centered">
+        <div class="column is-four-fifths">
+          <h2 class="title is-2">Abstract</h2>
+          <div class="content has-text-justified">
+            Humans possess delicate dynamic balance mech-
+anisms that enable them to maintain stability across diverse
+terrains and under extreme conditions. However, despite sig-
+nificant advances recently, existing locomotion algorithms for
+humanoid robotics are still limited to conventional terrains
+and struggle to traverse extreme environments. This is because
+current methods often rely on periodic gaits or task-specific
+rewards, lacking effective mechanisms to maintain balance
+at critical moments of instability. To address this challenge,
+we propose a novel whole-body locomotion algorithm based
+on dynamic balance and Reinforcement Learning (RL) that
+enables humanoid robots to traverse extreme terrains, partic-
+ularly narrow pathways and sudden obstacles. Specifically, we
+introduce a dynamic balance mechanism using a Zero-Moment
+Point (ZMP)-based reward, extending the traditional concept
+of ZMP from gait synthesis to an RL framework. We further
+develop a whole-body actor-critic framework that integrates
+ZMP-driven and task-driven rewards to achieve coordinated
+actions of the upper and lower limbs. Experiments conducted
+on a full-sized Unitree H1-2 robot verify the ability of our
+method to maintain balance on extremely narrow terrains and
+under external disturbances, demonstrating its effectiveness in
+enhancing the robot’s adaptability to complex environments. 
+            </p>
+          </div>
+        </div>
+      </div>
+      <!--/ Abstract. -->
+
+      <!-- Method  -->
+      <div class="columns is-centered has-text-centered">
+        <div class="column is-four-fifths">
+          <h2 class="title is-2">Method</h2>
+          <p style="text-align: left;">
+            simple description of the method
+          </p>
+          <br>
+          <img src="./static/images/method.png" style="max-width: 100%; max-height: 600px;" />
+        </div>
+      </div>
+    </div>
+  </section>
+
+
+  <section class="section">
+    <div class="container is-full-width">
+    <div class="columns is-centered has-text-centered">
+      <div class="column is-full-width">
+        <h2 class="title is-2">Experiments</h2>
+        <p style="text-align: left;">
+          
+        </p>
+      </div>
+    </div>
+    
+      <div class="columns">
+        <div class="column is-half">
+          <div class="content">
+            <h3 class="title is-3">Track</h3>
+            <!-- <p></p> -->
+            <video id="push-video" autoplay controls muted playsinline style="width: 100%">
+              <source src="./static/videos/track.mp4" type="video/mp4">
+            </video>
+          </div>
+        </div>
+        <div class="column is-half">
+          <div class="content">
+          <h3 class="title is-3">Push on Slope</h3>
+          <p></p>
+              <video id="terrain-video" autoplay controls muted playsinline height="100%">
+                <source src="./static/videos/slope+push.mp4" type="video/mp4">
+              </video>
+          </div>
+        </div>
+      </div>
+
+      <div class="columns is-centered">
+        <div class="column is-half">
+          <div class="content">
+            <h3 class="title is-3">Push on Balance Beam</h3>
+            <p></p>
+            <video id="loads-video" autoplay controls muted playsinline height="100%">
+              <source src="./static/videos/bridge+push.mp4" type="video/mp4">
+            </video>
+          </div>
+        </div>
+        <div class="column is-half">
+          <div class="content">
+          <h3 class="title is-3">Push on Unstructured Terrains</h3>
+          <p></p>
+            <video id="wild-video" autoplay controls muted playsinline height="100%">
+              <source src="./static/videos/push.mp4" type="video/mp4">
+            </video>
+          </div>
+        </div>
+      </div>
+
+      <div class="columns is-centered">
+        <div class="column is-half">
+          <div class="content">
+            <h3 class="title is-3">Stumble</h3>
+            <p></p>
+            <video id="loads-video" autoplay controls muted playsinline height="100%">
+              <source src="./static/videos/stumble.mp4" type="video/mp4">
+            </video>
+          </div>
+        </div>
+        <div class="column is-half">
+          <div class="content">
+          <h3 class="title is-3">Carry Payload</h3>
+          <p></p>
+            <video id="wild-video" autoplay controls muted playsinline height="100%">
+              <source src="./static/videos/payload.mp4" type="video/mp4">
+            </video>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+
+  <section class="section" id="BibTeX">
+    <div class="container is-max-desktop content">
+      <h2 class="title">BibTeX</h2>
+      <pre>
+        <code>
+          @article{Xie2025Humanoid,
+          title={Humanoid Whole-Body Locomotion on Narrow Terrain via Dynamic Balance and Reinforcement Learning}, 
+          author={Xie, Weiji and Bai, Chenjia and Shi, Jiyuan and Yang, Junkai and Ge, Yunfei and Zhang, Weinan and Li, Xuelong},
+          year={2024},
+          }
+        </code>
+      </pre>
+    </div>
+  </section>
+
+
+  <footer class="footer">
+    <div class="container">
+      <div class="content has-text-centered">
+        <a class="icon-link" href="">
+          <i class="fas fa-file-pdf"></i>
+        </a>
+        <!-- <a class="icon-link" href="" class="external-link" disabled>
+          <i class="fab fa-github"></i>
+        </a> -->
+      </div>
+      <div class="columns is-centered">
+        <div class="column is-8">
+          <div class="content">
+            <p>
+              This website is adapted from<a href="https://github.com/nerfies/nerfies.github.io"> Nerfies</a>, licensed
+              under a <a rel="license" href="http://creativecommons.org/licenses/by-sa/4.0/">Creative
+                Commons Attribution-ShareAlike 4.0 International License.</a>
+            </p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </footer>
+
+</body>
+
+</html>
